@@ -15,14 +15,14 @@ savebtn.addEventListener('click',(event) => {
         }
 },false)
 
-salaryInput.addEventListener('onblur',(event)=>{
-    
+salaryInput.onblur = function(){
     let salary = parseInt(salaryInput.value)
     if (!Number.isInteger(salary)){
         alert('В поле зп должно быть число!')
+        salaryInput.value = '0'
         salaryInput.focus()
-    } 
-}, false)
+    }  
+}
 
 function check(){
     if (mortgageCheck && salaryInput.value < 40000){
