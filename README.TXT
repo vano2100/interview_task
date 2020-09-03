@@ -46,3 +46,7 @@ bin/console make:controller calculate
 
 Проверить настройки БД
 php bin/console doctrine:database:create
+
+Создаем форму для ввода и модель для нее.
+bin/console make:form emp
+
