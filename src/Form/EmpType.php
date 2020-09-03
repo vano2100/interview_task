@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use App\Entity\Emp;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -21,7 +22,7 @@ class EmpType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Имя',
             ])
-            ->add('salary', TextType::class, [
+            ->add('salary', IntegerType::class, [
                 'label' => 'Зарплата',
             ])
             ->add('mortgage', CheckboxType::class, [

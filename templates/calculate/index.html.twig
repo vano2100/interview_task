@@ -2,6 +2,9 @@
 
 {% block title %}Hello CalculateController!{% endblock %}
 
+{% block stylesheet %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+{% endblock %}
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
@@ -9,9 +12,23 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello! </h1>
-
-    
+    <h1>Задание с собеседования </h1>
+    <div>Тестовое задание
+Написать приложение на Symfony, которое рассчитывает зарплату с учетом прогрессивной налоговой ставки, сохраняет данные в базу и выводит значение на экран.
+<br>
+До 50000 руб, ставка налога 13%.<br>
+Свыше 50000 руб, ставка 13% на 50000 руб. и 18% на превышающую часть.<br>
+Пользователь может дополнительно выбрать опцию (чекбокс)<br>
+- ипотека<br>
+В случае если выбрана опция "ипотека", заработная плата не может быть меньше 40000 руб.
+<br>
+Необходимо:<br>
+Реализовать минимально и быстро.<br>
+Пользоваться документаций Symfony.<br>
+Фронт сделать на boostrap, без jquery.<br>
+Выложить на github.</div>
+<hr>
+ {% form_theme form 'bootstrap_4_layout.html.twig' %}   
     {{ form(form) }}
 
 </div>
