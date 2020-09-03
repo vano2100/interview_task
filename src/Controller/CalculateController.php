@@ -10,13 +10,14 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Emp;
 use App\Entity\Employe;
 use App\Form\EmpType;
+use App\Service\CostCalculator;
 
 class CalculateController extends AbstractController
 {
     /**
      * @Route("/calculate", name="calculate")
      */
-    public function index(Request $request,ValidatorInterface $validator)
+    public function index(Request $request,ValidatorInterface $validator, CostCalculator $costCalculator)
     {
         $emp = new Emp();
 
@@ -24,6 +25,7 @@ class CalculateController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $emp = $form->getData();
+            $emp->setSalary($costCalculator->calculate($emp->getSalary()));
             $empDB = new Employe();
             $entityManager = $this->getDoctrine()->getManager();
             $empDB->setName($emp->getName());

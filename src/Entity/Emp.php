@@ -25,12 +25,7 @@ class Emp
 
     public function setSalary($salary)
     {
-        $intSalary = (int)$salary;
-        if ($intSalary <= 50000){
-            $this->salary = $intSalary * 0.87;
-        } else {
-            $this->salary = ($intSalary - 50000) * 0.82 + 50000 * 0.87;
-        }
+        $this->salary = $salary;        
     }
 
     public function getMortgage()
