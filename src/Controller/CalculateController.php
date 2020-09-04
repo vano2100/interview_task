@@ -30,10 +30,10 @@ class CalculateController extends AbstractController
             $entityManager->persist($emp);
             $entityManager->flush();
             //$errors = $validator->validate($emp);
-            $form = $this->createForm(EmpType::class, $emp);
+            $form = $this->createForm(EmpType::class, new Employe());
 
             return $this->render('calculate/index.html.twig',['form' => $form->createView(),
-            ]);
+            'name'=>$emp->getName(), 'salary'=>$emp->getSalary()]);
         }
 
         return $this->render('calculate/index.html.twig', [
