@@ -19,19 +19,15 @@ class CalculateController extends AbstractController
      */
     public function index(Request $request,ValidatorInterface $validator, CostCalculator $costCalculator)
     {
-        $emp = new Emp();
+        $emp = new Employe();
 
         $form = $this->createForm(EmpType::class, $emp);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $emp = $form->getData();
             $emp->setSalary($costCalculator->calculate($emp->getSalary()));
-            $empDB = new Employe();
             $entityManager = $this->getDoctrine()->getManager();
-            $empDB->setName($emp->getName());
-            $empDB->setSalary($emp->getSalary());
-            $empDB->setMortgage($emp->getMortgage());
-            $entityManager->persist($empDB);
+            $entityManager->persist($emp);
             $entityManager->flush();
             //$errors = $validator->validate($emp);
             $form = $this->createForm(EmpType::class, $emp);

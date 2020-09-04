@@ -19,9 +19,13 @@ salaryInput.onblur = function(){
     let salary = parseInt(salaryInput.value)
     if (!Number.isInteger(salary)){
         alert('В поле зп должно быть число!')
-        salaryInput.value = '0'
+        salaryInput.value = '10001'
         salaryInput.focus()
-    }  
+    }  else if (salary < 10000) {
+        alert('За такую ЗП даже студенты не работают!')
+        salaryInput.value = '10001'
+        salaryInput.focus()
+    }
 }
 
 function check(){
