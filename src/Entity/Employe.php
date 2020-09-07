@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\EmployeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=EmployeRepository::class)
@@ -71,5 +72,18 @@ class Employe
         $this->mortgage = $mortgage;
 
         return $this;
+    }
+
+    /**
+     * @Assert\IsTrue(message = "Salary with mortgage cannot be less 40000")
+     */
+    public function isSalaryLegal(): bool
+    {
+        if ($this->mortgage && $this->salary < 40000)
+        {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

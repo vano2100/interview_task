@@ -32,9 +32,10 @@
     {{ form(form) }}
 
 </div>
+{% if name %}
 <div class="alert alert-primary">Сотрудник {{ name }} с ЗП {{ salary }} добавлен в БД.</div>
-
+{% endif %}
 {% endblock %}
-{% block javascripts %}
+{# {% block javascripts %}
 <script src="/js/validator.js"></script>
-{% endblock %}
+{% endblock %} #}

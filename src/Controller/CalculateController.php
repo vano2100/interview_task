@@ -37,7 +37,7 @@ class CalculateController extends AbstractController
         }
 
         return $this->render('calculate/index.html.twig', [
-            'form' => $form->createView(),
+            'form' => $form->createView(), 'name' => '',
         ]);
     }
 
